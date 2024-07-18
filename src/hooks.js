@@ -15,8 +15,10 @@ function useFlip(initialFlipState = true) {
 }
 
 /**
- * Custom hook to make axios get requests to api
- * Returns: array holding card data, function to add card
+ * Custom hook that takes url arg to make axios get requests to api
+ * Returns: array holding card data, 
+ *          function to add card(takes parameter of url endpoint), 
+ *          function to remove card
  */
 function useAxios(baseUrl) {
     const [cards, setCards] = useState([]);
@@ -30,21 +32,5 @@ function useAxios(baseUrl) {
 
     return [cards, addCardData, removeCardData]
 }
-
-// const [cards, setCards] = useState([]);
-// const addCard = async () => {
-//   const response = await axios.get(
-//     "https://deckofcardsapi.com/api/deck/new/draw/"
-//   );
-//   setCards(cards => [...cards, { ...response.data, id: uuid() }]);
-// };
-
-// const [pokemon, setPokemon] = useState([]);
-// const addPokemon = async name => {
-//   const response = await axios.get(
-//     `https://pokeapi.co/api/v2/pokemon/${name}/`
-//   );
-//   setPokemon(pokemon => [...pokemon, { ...response.data, id: uuid() }]);
-// };
 
 export {useFlip, useAxios};
